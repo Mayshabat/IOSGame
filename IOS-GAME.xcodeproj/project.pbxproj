@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F99B5E0A2FD952670057004A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99B5E092FD952670057004A /* ResultViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F99B5DE52FD714C10057004A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +31,15 @@
 		F99B5DCE2FD714C00057004A /* IOS-GAME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS-GAME.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99B5DE42FD714C10057004A /* IOS-GAMETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IOS-GAMETests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99B5DEE2FD714C10057004A /* IOS-GAMEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IOS-GAMEUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F99B5E092FD952670057004A /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		F99B5DF62FD714C10057004A /* Exceptions for "IOS-GAME" folder in "IOS-GAME" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			assetTagsByRelativePath = {
+				"/Localized: Main.storyboard" = (1, 2, 3, 4, 5, 6, 7, );
+			};
 			membershipExceptions = (
 				Info.plist,
 			);
@@ -88,6 +96,7 @@
 		F99B5DC52FD714C00057004A = {
 			isa = PBXGroup;
 			children = (
+				F99B5E092FD952670057004A /* ResultViewController.swift */,
 				F99B5DD02FD714C00057004A /* IOS-GAME */,
 				F99B5DE72FD714C10057004A /* IOS-GAMETests */,
 				F99B5DF12FD714C10057004A /* IOS-GAMEUITests */,
@@ -183,6 +192,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+				);
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
@@ -249,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99B5E0A2FD952670057004A /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
