@@ -1,24 +1,25 @@
 import UIKit
-
+import AVFoundation
 class GameViewController: UIViewController {
-
+    
     @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var player0Label: UILabel!
     @IBOutlet weak var pcLabel: UILabel!
     @IBOutlet weak var pc0Label: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-
+    @IBOutlet weak var sideLabel: UILabel!
     @IBOutlet weak var playerCardImageView: UIImageView!
     @IBOutlet weak var pcCardImageView: UIImageView!
-
+    
     var playerName = "Player"
-
+    var playerSide = ""
+    var audioPlayer: AVAudioPlayer?
     var playerScore = 0
     var pcScore = 0
     var round = 0
     var seconds = 5
     var timer: Timer?
-
+    
     let cards = [
         ("069-four of hearts", 4),
         ("070-five of hearts", 5),
@@ -67,77 +68,85 @@ class GameViewController: UIViewController {
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        playBackgroundMusic()
         playerName = UserDefaults.standard.string(forKey: "playerName") ?? "Player"
-
+        
         playerLabel.text = playerName
+        sideLabel.text = playerSide
         player0Label.text = "0"
         pcLabel.text = "PC"
         pc0Label.text = "0"
         timerLabel.text = "5"
-
+        if playerSide == "East Side"{
+            playerLabel.text = "PC"
+            pcLabel.text = playerName
+        }else{
+            playerLabel.text = playerName
+            pcLabel.text = "PC"
+        }
+        
         startGame()
     }
-
+    
     func startGame() {
-
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-
+            
             self.seconds -= 1
             self.timerLabel.text = "\(self.seconds)"
-
+            
             if self.seconds == 0 {
                 self.seconds = 5
                 self.playRound()
             }
         }
     }
-
+    
     func playRound() {
-
+        
         if round >= 10 {
             timer?.invalidate()
             timer = nil
             goToResultScreen()
             return
         }
-
+        
         round += 1
         seconds = 5
         timerLabel.text = "5"
-
+        
         let playerCard = cards.randomElement()!
         var pcCard = cards.randomElement()!
-
+        
         while playerCard.0 == pcCard.0 {
             pcCard = cards.randomElement()!
         }
-
+        
         playerCardImageView.image = UIImage(named: playerCard.0)
         pcCardImageView.image = UIImage(named: pcCard.0)
-
+        
         if playerCard.1 > pcCard.1 {
             playerScore += 1
         } else if pcCard.1 > playerCard.1 {
             pcScore += 1
         }
-
+        
         player0Label.text = "\(playerScore)"
         pc0Label.text = "\(pcScore)"
     }
-
+    
     func goToResultScreen() {
-
+        
         timer?.invalidate()
         timer = nil
-
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
+        
         let resultVC = storyboard.instantiateViewController(
             withIdentifier: "ResultViewController"
         ) as! ResultViewController
-
+        
         if playerScore > pcScore {
             resultVC.winnerText = "Winner: \(playerName)"
             resultVC.scoreText = "score: \(playerScore)"
@@ -148,8 +157,43 @@ class GameViewController: UIViewController {
             resultVC.winnerText = "It's a Tie"
             resultVC.scoreText = "score: \(playerScore)"
         }
-
+        
         resultVC.modalPresentationStyle = .fullScreen
         present(resultVC, animated: true)
     }
+    func playBackgroundMusic() {
+        
+        guard let path = Bundle.main.path(
+            forResource: "background",
+            ofType: "mp3"
+        ) else {
+            print("music file not found")
+            return
+        }
+        
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = -1
+            audioPlayer?.play()
+        } catch {
+            print("Music error")
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        timer?.invalidate()
+        timer = nil
+        audioPlayer?.stop()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        timer?.invalidate()
+        timer = nil
+    }
 }
+

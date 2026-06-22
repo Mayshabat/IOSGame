@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F98D1B822FE867C800353CC1 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F98D1B812FE867C800353CC1 /* background.mp3 */; };
 		F99B5E0A2FD952670057004A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99B5E092FD952670057004A /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F98D1B812FE867C800353CC1 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		F99B5DCE2FD714C00057004A /* IOS-GAME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS-GAME.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99B5DE42FD714C10057004A /* IOS-GAMETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IOS-GAMETests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99B5DEE2FD714C10057004A /* IOS-GAMEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IOS-GAMEUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 				F99B5DE72FD714C10057004A /* IOS-GAMETests */,
 				F99B5DF12FD714C10057004A /* IOS-GAMEUITests */,
 				F99B5DCF2FD714C00057004A /* Products */,
+				F98D1B812FE867C800353CC1 /* background.mp3 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98D1B822FE867C800353CC1 /* background.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

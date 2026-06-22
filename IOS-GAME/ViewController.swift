@@ -9,6 +9,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
     let middleLongitude = 34.817549168324334
+    var hasLocation = false
+    var playerSide = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             name.text = "Hi \(playerName!)"
             UserDefaults.standard.set(playerName!, forKey: "playerName")
         }
-
+        if hasLocation == false {
+            name.text = "Waiting for location"
+            return
+        }
         performSegue(withIdentifier: "showGame", sender: self)
     }
 
@@ -40,6 +45,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if segue.identifier == "showGame" {
             let gameVC = segue.destination as! GameViewController
             gameVC.playerName = UserDefaults.standard.string(forKey: "playerName") ?? "Player"
+            gameVC.playerSide = playerSide
+            
         }
     }
 
@@ -58,16 +65,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let longitude = locationData.coordinate.longitude
 
         if longitude > middleLongitude {
-            print("East Side")
+            playerSide = "East Side"
         } else {
-            print("West Side")
+            playerSide = "West Side"
         }
-
+        hasLocation = true
+        locationManager.stopUpdatingLocation()
         startButton.isHidden = false
     }
 
     func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {
+        
+      
         startButton.isHidden = false
     }
 }
+
+
