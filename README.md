@@ -34,6 +34,7 @@ https://drive.google.com/file/d/1jZy2ZyH5dAbM2AyaXYYSpXWa6h94CVfk/view?usp=shari
 Video 2:
 https://drive.google.com/file/d/1OAGtauvJ9ZIPOYkqXnmYoGPFdD7QH-Lp/view?usp=sharing
 
+Due to technical limitations of the remote Mac environment (RealVNC remote access), it was not possible to record the demo video with voice narration. The video demonstrates all required features and functionality of the application.
 ## How to Run
 
 1. Open the project in Xcode.
