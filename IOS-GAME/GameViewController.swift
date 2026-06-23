@@ -163,6 +163,10 @@ class GameViewController: UIViewController {
         
         resultVC.modalPresentationStyle = .fullScreen
         playFinishSound()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.present(resultVC, animated: true)
+        }
         present(resultVC, animated: true)
     }
     func playBackgroundMusic() {
@@ -223,7 +227,7 @@ class GameViewController: UIViewController {
         audioPlayer?.stop()
         backgroundPlayer?.stop()
         cardPlayer?.stop()
-        finishPlayer?.stop()    }
+            }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
