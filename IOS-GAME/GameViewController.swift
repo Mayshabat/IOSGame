@@ -7,13 +7,16 @@ class GameViewController: UIViewController {
     @IBOutlet weak var pcLabel: UILabel!
     @IBOutlet weak var pc0Label: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var sideLabel: UILabel!
+   
     @IBOutlet weak var playerCardImageView: UIImageView!
     @IBOutlet weak var pcCardImageView: UIImageView!
     
     var playerName = "Player"
     var playerSide = ""
     var audioPlayer: AVAudioPlayer?
+    var backgroundPlayer: AVAudioPlayer?
+    var cardPlayer: AVAudioPlayer?
+    var finishPlayer: AVAudioPlayer?
     var playerScore = 0
     var pcScore = 0
     var round = 0
@@ -72,7 +75,7 @@ class GameViewController: UIViewController {
         playerName = UserDefaults.standard.string(forKey: "playerName") ?? "Player"
         
         playerLabel.text = playerName
-        sideLabel.text = playerSide
+       
         player0Label.text = "0"
         pcLabel.text = "PC"
         pc0Label.text = "0"
@@ -104,7 +107,7 @@ class GameViewController: UIViewController {
     }
     
     func playRound() {
-        
+        playCardSound()
         if round >= 10 {
             timer?.invalidate()
             timer = nil
@@ -159,6 +162,7 @@ class GameViewController: UIViewController {
         }
         
         resultVC.modalPresentationStyle = .fullScreen
+        playFinishSound()
         present(resultVC, animated: true)
     }
     func playBackgroundMusic() {
@@ -181,13 +185,45 @@ class GameViewController: UIViewController {
             print("Music error")
         }
     }
+    func playCardSound() {
+        guard let path = Bundle.main.path(forResource: "card1", ofType: "mp3") else {
+            print("card not found")
+            return
+        }
+
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            cardPlayer = try AVAudioPlayer(contentsOf: url)
+            cardPlayer?.play()
+        } catch {
+            print("card error")
+        }
+    }
+    func playFinishSound() {
+        guard let path = Bundle.main.path(forResource: "finish 2", ofType: "mp3") else {
+            print("finish not found")
+            return
+        }
+
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            finishPlayer = try AVAudioPlayer(contentsOf: url)
+            finishPlayer?.play()
+        } catch {
+            print("finish error")
+        }
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         timer?.invalidate()
         timer = nil
         audioPlayer?.stop()
-    }
+        backgroundPlayer?.stop()
+        cardPlayer?.stop()
+        finishPlayer?.stop()    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -195,5 +231,7 @@ class GameViewController: UIViewController {
         timer?.invalidate()
         timer = nil
     }
+    
+    
 }
 

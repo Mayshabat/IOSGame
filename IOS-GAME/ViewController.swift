@@ -6,7 +6,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
-
+    @IBOutlet weak var sideLabel: UILabel!
+  
+    
     let locationManager = CLLocationManager()
     let middleLongitude = 34.817549168324334
     var hasLocation = false
@@ -70,6 +72,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             playerSide = "West Side"
         }
         hasLocation = true
+        sideLabel.text = playerSide
         locationManager.stopUpdatingLocation()
         startButton.isHidden = false
     }
