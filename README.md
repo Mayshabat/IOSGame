@@ -21,8 +21,6 @@ This is an iOS card game application built with Swift, UIKit and Storyboard.
 
 <img width="432" height="872" alt="image" src="https://github.com/user-attachments/assets/fb85fc37-761d-4bd5-a6c5-81a11cf85131" />
 
-<img width="895" height="432" alt="image" src="https://github.com/user-attachments/assets/68841df7-b055-47d5-b0de-1b58a1550580" />
-
 <img width="462" height="886" alt="image" src="https://github.com/user-attachments/assets/b3ce5d9d-5f16-4739-a907-31e5e61d4630" />
 
 <img width="857" height="432" alt="image" src="https://github.com/user-attachments/assets/cc32deed-e9bf-4355-8acd-f8607599165c" />
