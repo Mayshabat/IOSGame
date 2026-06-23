@@ -1,8 +1,3 @@
-## Demo Video
-
-Video:
-https://drive.google.com/file/d/1jZy2ZyH5dAbM2AyaXYYSpXWa6h94CVfk/view?usp=sharing
-
 
 # IOS Card Game Project
 
@@ -28,22 +23,25 @@ This is an iOS card game application built with Swift, UIKit and Storyboard.
 <img width="432" height="872" alt="image" src="https://github.com/user-attachments/assets/fb85fc37-761d-4bd5-a6c5-81a11cf85131" />
 <img width="901" height="448" alt="image" src="https://github.com/user-attachments/assets/b35e077b-b1fd-460f-88c0-469a69d0fb54" />
 
-### Game Screen
 
-![Game Screen](screenshots/game_screen.png)
 
-### Result Screen
-
-![Result Screen](screenshots/result_screen.png)
-
-### Dark Mode
 
 <img width="895" height="432" alt="image" src="https://github.com/user-attachments/assets/68841df7-b055-47d5-b0de-1b58a1550580" />
 
 
+<img width="431" height="872" alt="image" src="https://github.com/user-attachments/assets/74dffd84-1136-450e-a15b-c5247fbaf458" />
+<img width="462" height="886" alt="image" src="https://github.com/user-attachments/assets/b3ce5d9d-5f16-4739-a907-31e5e61d4630" />
+
+<img width="857" height="432" alt="image" src="https://github.com/user-attachments/assets/cc32deed-e9bf-4355-8acd-f8607599165c" />
+
+
 ## Demo Video
 
-🎥 [Watch Demo Video](PASTE_VIDEO_LINK_HERE)
+Video 1:
+https://drive.google.com/file/d/1jZy2ZyH5dAbM2AyaXYYSpXWa6h94CVfk/view?usp=sharing
+
+Video 2:
+https://docs.google.com/videos/d/1pUcyLH_0k42ccg1vZDMl7ATJTlxv0fjaRTXHUOCt-Js/edit?usp=sharing
 
 ## How to Run
 
@@ -52,4 +50,5 @@ This is an iOS card game application built with Swift, UIKit and Storyboard.
 3. Run the project.
 4. Allow location permission.
 5. Enter a name and press Start.
+
 
